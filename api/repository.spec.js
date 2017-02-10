@@ -2,32 +2,32 @@ var assert = require('assert');
 var repository = require('./repository');
 
 describe('addPerson', function() {
-  it('handles CRUD add Person', function() {
+  it('handles CRUD create Person', function() {
     var result = repository.addPerson(({name:"Bob"}));
     assert.equal(isNaN(result.id), false, 'addPerson("Bob") has :id');
   });
-  it('handles CRUD add Person(zero arg)', function() {
+  it('handles CRUD create Person(zero arg)', function() {
     var result = repository.addPerson(({name:0}));
     assert.equal(isNaN(result.id), false, 'addPerson(0) has :id');
   });
-  it('handles CRUD add Person(empty string arg)', function() {
+  it('handles CRUD create Person(empty string arg)', function() {
     var result = repository.addPerson(({name:""}));
     assert.equal(isNaN(result.id), false, 'addPerson("") has :id');
   });
-  it('handles CRUD create Person(null json arg)', function() {
+  it('handles CRUD create Person(null json arg) - DESTRUCTIVE', function() {
     var result = repository.addPerson(({}));
     assert.equal(isNaN(result.id), true, 'addPerson(null) has no :id');
   });
 });
 
 
-describe('findPerson(:person_id)', function() {
+describe('findPerson', function() {
   it('handles CRUD read person', function() {
     var person = repository.addPerson(({name:"Bob"}))
     var result = repository.findPerson(({person_id: person.id }))
     assert.equal(isNaN(result.id), false, 'getPerson(..) result has :id');
   });
-  it('handles CRUD find Person(missing arg)', function() {
+  it('handles CRUD read Person(missing arg)', function() {
     var result = repository.findPerson(({id: "wrong-name" }))
     assert.equal(isNaN(result.id), true, 'findPerson(missing arg) result has no :id');
     assert.equal(result.error, "Person lookup requires valid :person_id", 'getPerson(missing arg) result has no :id');
@@ -35,27 +35,27 @@ describe('findPerson(:person_id)', function() {
 });
 
 describe('addPlace', function() {
-  it('handles CRUD add Place', function() {
+  it('handles CRUD create Place', function() {
     var result = repository.addPlace(({name:"Greenwich",latitude:"49.9",longitude:"-0"}))
     assert.equal(isNaN(result.id), false, 'addPlace(..) result has :id');
   });
-  it('handles CRUD add Place(numeric zero arg)', function() {
+  it('handles CRUD create Place(numeric zero arg)', function() {
     var result = repository.addPlace(({name:0,latitude:49.9,longitude:0}))
     assert.equal(isNaN(result.id), false, 'addPlace(..) result has :id');
   });
-  it('handles CRUD add Place(missing arg)', function() {
+  it('handles CRUD create Place(missing arg)', function() {
     var result = repository.addPlace(({latitude:"49.9",longitude:"-0"}))
     assert.equal(isNaN(result.id), true, 'addPlace(..) result has no :id');
   });
 });
 
 describe('findPlace', function() {
-  it('handles CRUD find Place', function() {
+  it('handles CRUD read Place', function() {
     var place = repository.addPlace(({name:"Greenwich",latitude:"49.9",longitude:"-0"}))
     var result = repository.findPlace(({place_id: place.id }))
     assert.equal(isNaN(result.id), false, 'findPlace(..) result has no :id');
   });
-  it('handles CRUD find Place(missing arg)', function() {
+  it('handles CRUD read Place(missing arg)', function() {
     var result = repository.findPlace(({id: "wrong-name" }))
     assert.equal(isNaN(result.id), true, 'getPlace(missing arg) result has no :id');
     assert.equal(result.error, "Place lookup requires valid :place_id", 'getPlace(missing arg) result has no :id');
