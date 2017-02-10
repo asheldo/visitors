@@ -26,15 +26,15 @@ Terminal 2:
 > `curl --data "name=bob" http://localhost:3000/person`
 
 > `curl http://localhost:3000/person/1`
-> {"id":0,"name":"bob"}
+> {"id":1,"name":"bob"}
 
 > `curl --data "name=b&latitude=1&longitude=1" http://localhost:3000/place`
 
 > `curl http://localhost:3000/place/1`
-> {"id":0,"name":"b","latitude":"1","longitude":"1"}^C
+> {"id":1,"name":"b","latitude":"1","longitude":"1"}^C
 
-> `curl -X POST http://localhost:3000/person/0/place/0`
-> {"person_id":0,"place_id":0}
+> `curl -X POST http://localhost:3000/person/1/place/1`
+> {"person_id":1,"place_id":1}
 
-> `curl http://localhost:3000/person/0/place`
-> [{"id":0,"name":"b","latitude":"1","longitude":"1"}]
+> `curl http://localhost:3000/person/1/place`
+> [{"id":1,"name":"b","latitude":"1","longitude":"1"}]
