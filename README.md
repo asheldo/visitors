@@ -2,7 +2,7 @@
 An example Node.js restify api
 
 ## Requirements
-Requires ES6 compatible [node.js installation](https://nodejs.org/en/download/package-manager/#windows).
+Requires ES6 compatible [node.js installation](https://nodejs.org/en/download/package-manager/#windows), [v6.5 or later](https://kangax.github.io/compat-table/es6/#node65).
 
 E.g., for Windows / chocolatey: `choco install nodejs`
 
