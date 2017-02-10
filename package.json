@@ -1,0 +1,25 @@
+{
+  "name": "visitors",
+  "version": "1.0.0",
+  "description": "Person-Place Node.js API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asheldo/visitors.git"
+  },
+  "keywords": [
+    "api"
+  ],
+  "author": "Andy Sheldon <andy.m.sheldon@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/asheldo/visitors/issues"
+  },
+  "homepage": "https://github.com/asheldo/visitors#readme",
+  "dependencies": {
+    "restify": "^4.3.0"
+  }
+}
